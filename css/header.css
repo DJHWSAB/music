@@ -1,0 +1,105 @@
+/* 这里存放的是头部组件的复用 */
+
+/* 1.头部组件类型(一) */
+.header_type_01 {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 标题 */
+.header_type_01 .title {
+  color: #333;
+  font-size: 12px;
+}
+
+/* 更多 */
+.header_type_01 .more {
+  color: #666;
+}
+
+.header_type_01 .more:hover {
+  /* 下划线 */
+  text-decoration: underline;
+}
+
+/* 2.头部组件类型(二) */
+.header_type_02 {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 垂直方向: 底部对齐 */
+  align-items: flex-end;
+  position: relative;
+  height: 35px;
+  /* padding-left: 34px; */
+  /* padding-right: 24px; */
+  /* 微调垂直方向的底部对齐 */
+  /* padding-bottom: 6px; */
+  /* 简写 */
+  padding: 0 24px 6px 34px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #C10D0C;
+  background: url(../images/main_sprite.png) no-repeat -225px -156px;
+}
+
+/* 通过伪元素设置右侧的字体图标 */
+.header_type_02::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  width: 12px;
+  height: 12px;
+  background: url(../images/main_sprite.png) no-repeat 0 -240px;
+}
+
+/* 左侧 */
+.header_type_02 .area_left  {
+  display: flex;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+}
+
+
+/* ul */
+.header_type_02 .keywords {
+  display: flex;
+  margin-left: 20px;
+}
+
+/* "|" */ 
+.header_type_02 .keywords .line {
+  margin: 0 10px;
+  color: #ccc;
+}
+
+/* a */
+.header_type_02 .keywords .item {
+  color: #666;
+}
+
+.header_type_02 .keywords .item:hover {
+  /* 下划线 */
+  text-decoration: underline;
+  
+}
+
+
+/* 标题 */
+.header_type_02 .title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+}
+
+/* 更多 */
+.header_type_02 .more {
+  font-size: 12px;
+  color: #666;
+}

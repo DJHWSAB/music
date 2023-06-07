@@ -1,0 +1,187 @@
+/* 这里存放的是主要区域的右侧样式 */
+
+/* 2.右侧区域 */
+.main .area-right {
+  width: 250px;
+  /* background-color: #00f; */
+}
+
+/* 2.1用户登录 */
+.main .area-right .user-login {
+  width: 250px;
+  height: 126px;
+  background: url(../images/main_sprite.png) no-repeat;
+}
+
+/* p */
+.main .area-right .user-login .desc {
+  width: 205px;
+  margin: 0 auto;
+  padding: 16px 0;
+  color: #666;
+  line-height: 22px;
+}
+
+/* a */
+.main .area-right .user-login .btn {
+  /*
+   📢: display为什么是block,而不是inline-block?
+   因为如果是inline-block,水平居中显示需要父元素设置 text-align: 
+   center; 这个会影响到p标签的内容,所以这里只能是block,通过margin: 0 auto;实现水平居中
+   */
+   display: block;
+   width: 100px;
+   height: 31px;
+   background: url(../images/main_sprite.png) no-repeat;
+   background-position: 0 -195px;
+   line-height: 31px;
+   margin: 0 auto;
+   text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 0 #8a060b;
+}
+
+.main .area-right .user-login .btn:hover {
+  background-position: -110px -195px;
+}
+
+/* 2.2入驻歌手 */
+.main .settle-singer {
+  padding: 20px;
+}
+
+/* ul */
+.main .settle-singer .list {
+  padding-top: 6px;
+}
+
+/* a */
+.main .settle-singer .list .item {
+  display: flex;
+  width: 210px;
+  height: 62px;
+  margin-top: 14px;
+  background-color: #fafafa;
+}
+
+.main .settle-singer .list .item:hover {
+  background-color: #f4f4f4;
+}
+
+/* 信息 */
+.main .settle-singer .list .item .info {
+  flex: 1;
+  display: flex;
+  /* 改变主轴方向,让文字上下排列 */
+  flex-direction: column;
+  /* 让文字垂直居中对齐 */
+  justify-content: space-around;
+  padding: 3px 8px;
+  /* 只要上下右三条边框 */
+  border: 1px solid #e9e9e9;
+  border-left: none;
+  /* 📢: flex布局和white-space的冲突：如果子盒子设置white-space，必须给flex：1( flex-grow: 1; 拉伸)的父盒子设置overflow: hidden;要不然会撑大父盒子的内容 */
+  overflow: hidden;
+}
+
+/* 歌手 */
+.main .settle-singer .list .item .info .singer {
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 描述 */
+.main .settle-singer .list .item .info .desc {
+  color: #666;
+  font-size: 12px;
+  /* 1.文本不换行显示 */
+  white-space: nowrap;
+  /* 2.文本超出隐藏 */
+  overflow: hidden;
+  /* 3.文本超出显示省略号 */
+  text-overflow: ellipsis;
+}
+
+.main .settle-singer .apply {
+  /* display: inline-block; */
+  width: 210px;
+  /* height: 31px; */
+  margin-top: 14px;
+  /* line-height: 31px; */
+  /* text-align: center; */
+  color: #333;
+  font-size: 12px;
+  font-weight: 700;
+  box-sizing: border-box;
+  /* background: url(../images/btn_sprite.png) no-repeat; */
+  /* background-position: right -100px; */
+  /* 圆角边框解决精灵图的红点 */
+  border-radius: 4px;
+  /* 补全边框 */
+  /* padding-right: 4px; */
+}
+
+.main .settle-singer .apply:hover {
+  background-position: right -182px;
+}
+
+/* .main .settle-singer .apply > i {
+  display: block;
+  height: 31px;
+  background: url(../images/btn_sprite.png) no-repeat;
+  background-position: 0 -59px;
+  调整文字的水平方向的位置
+  padding-left: 3px;
+} */
+
+.main .settle-singer .apply:hover > i {
+  background-position: 0 -141px;
+}
+
+/* 2.3热门主播 */
+.main .hot-author {
+  padding: 20px;
+}
+
+/* 列表内容ul */
+.main .hot-author .list {
+  margin-top: 10px;
+}
+
+
+/* li */
+.main .hot-author .list .item {
+  display: flex;
+  margin-top: 10px;
+}
+
+/* 信息 */
+.main .hot-author .list .item .info {
+  flex: 1;
+  display: flex;
+  /* 改变主轴方向 */
+  flex-direction: column;
+  /* justify-content: space-around; */
+  padding-left: 10px;
+  /* 📢: flex布局和white-space的冲突：如果子盒子设置white-space，必须给flex：1( flex-grow: 1; 拉伸)的父盒子设置overflow: hidden;要不然会撑大父盒子的内容 */
+  overflow: hidden;
+}
+
+.main .hot-author .list .item .info .author:hover {
+  /* 下划线 */
+  text-decoration: underline;
+}
+
+/* 介绍 */
+.main .hot-author .list .item .info .desc {
+  padding-top: 6px;
+  color: #666;
+  /* 1.文本不换行显示 */
+  white-space: nowrap;
+  /* 2.文本超出隐藏 */
+  overflow: hidden;
+  /* 3.文本超出显示省略号 */
+  text-overflow: ellipsis;
+}
+

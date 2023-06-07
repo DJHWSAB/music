@@ -1,0 +1,13 @@
+/* 这里存的是主要区域的样式 */
+
+.main .area {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 辅助高度 */
+  /* height: 500px; */
+  /* 左右边框 */
+  border: 1px solid #d3d3d3;
+  border-width: 0 1px;
+  background-image: url(../images/main_bg.png);
+}

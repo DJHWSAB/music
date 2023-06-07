@@ -1,0 +1,159 @@
+/* 这里存放的是轮播图样式 */
+
+.banner {
+  /* background-size可以省略,如果不省略, / background-size必须紧跟在background-position的后面😍 */
+  background: url(../images/banner_bg_01.jpg) no-repeat center / 6000px;
+}
+
+.banner .area {
+  position: relative;
+  height: 285px;
+  /* 辅助色 */
+  /* background-color: #00f; */
+}
+
+/* 1.左侧区域 */
+.banner .area .area-left {
+  position: relative;
+  width: 730px;
+}
+
+/* 图片数据内容(ul) */
+.banner .area-left .img-list {
+  display: flex;
+  overflow: hidden;
+}
+
+/* li */
+.banner .area-left .img-list>li {
+  /* 不压缩(默认为1) */
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* a */
+.banner .area-left .img-list .item {
+  display: inline-block;
+}
+
+.banner .area-left .img-list .item>img {
+  width: 100%;
+  height: 285px;
+
+  /*
+    📢: 块级元素(行内块级元素)嵌套img,底部会出现间隙解决的两种解决方法
+    1. 给img设置 vertical-align: top;
+    2. 给img设置 display: block; 
+   */
+  /* 📢: 因为设计稿的问题,所以虽然解决基线对齐问题,但还是能看出底部多出的部分!!! */
+  vertical-align: top;
+}
+
+
+/* 指示器(轮播图的小圆点)ul */
+.banner .area-left .dots-list {
+  /*
+    1.如何实现水平居中显示?
+    必须有宽度,才能设置l0/ro/m:0-a,如果没有宽度,可以通过flex布局,设置justify-content: center;
+    
+    2.如何实现垂直居中显示?
+    必须有高度,才能设置t0/bo/m:a-0,如果没有高度,可以通过flex布局,设置
+    align-items: center;
+   */
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  /* 获取宽度实现水平居中 */
+  display: flex;
+  /* 水平方向: 居中显示 */
+  justify-content: center;
+}
+
+/* li */
+.banner .area-left .dots-list>li {
+  margin: 0 2px;
+}
+
+/* a */
+.banner .area-left .dots-list .item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  /* background-color: #f00; */
+  background: url(../images/banner_sprite.png) no-repeat;
+  background-position: 3px -343px;
+}
+
+.banner .area-left .dots-list .item.active,
+.banner .area-left .dots-list .item:hover {
+  background-position: -16px -343px;
+}
+
+
+/* 2.右侧区域 */
+.banner .area .area-right {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 254px;
+  /* 辅助颜色 */
+  /* background-color: #f00; */
+  background: url(../images/download_sprite.png) no-repeat 0 0;
+}
+
+.banner .area-right .download {
+  display: inline-block;
+  width: 215px;
+  height: 56px;
+  margin: 186px 0 0 19px;
+  text-indent: -9999px;
+}
+
+.banner .area-right .download:hover {
+  background: url(../images/download_sprite.png) no-repeat 0 -290px;
+}
+
+.banner .area-right .desc {
+  margin: 10px auto;
+  text-align: center;
+  color: #8d8d8d;
+}
+
+
+/* 3.左右按钮 */
+.banner .area .control {
+  position: absolute;
+  /* display: inline-block; */
+  top: 0;
+  bottom: 0;
+  width: 37px;
+  height: 63px;
+  margin: auto 0;
+  /* background-color: #f00; */
+  background: url(../images/banner_sprite.png) no-repeat;
+}
+
+
+.banner .area .control.control-left {
+  left: -68px;
+  background-position: 0 -360px;
+}
+
+.banner .area .control.control.control-left:hover {
+  background-position: 0 -430px;
+}
+
+
+.banner .area .control.control-right {
+  right: -68px;
+  background-position: 0 -508px;
+}
+
+
+.banner .area .control.control.control-right:hover {
+  background-position: 0 -578px;
+}

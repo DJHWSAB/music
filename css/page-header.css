@@ -1,0 +1,264 @@
+/* 这里存放的是顶部导航栏样式 */
+
+/* --------------------- 顶部导航栏 --------------------- */
+.top {
+  /* 📢: 这里的宽度主要与设计稿保持一致 */
+  width: 1425px;
+  height: 70px;
+  background-color: #242424;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000;
+}
+
+.topbar {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 📢: 这里的高度主要与设计稿保持一致 */
+  height: 70px;
+  /* 📢: 为什么不用 align-items: center;而使用 line-height ？ */
+  /* 在flex布局中，如果不设置高度(默认为auto)，align-items：stretch；等价于align-items：normal；会将item的高度自动拉满 */
+  line-height: 70px;
+  /* 辅助色 */
+  /* background-color: #f00; */
+}
+
+/* 1.左侧区域 */
+.topbar .bar-left {
+  /* 📢: 实现logo和ul(导航数据内容)同一行显示 */
+  display: flex;
+}
+
+
+/* 1.1logo */
+.topbar .bar-left .logo {
+  /* 📢: 这里的宽度主要与设计稿保持一致 */
+  width: 176px;
+  background-image: url(../images/topbar_sprite.png);
+}
+
+.top .bar-left .logo > a {
+  display: inline-block;
+  width: 157px;
+  padding-right: 20px;
+  text-indent: -9999px;
+}
+
+/* 1.2导航数据内容ul */
+.topbar .bar-left .list {
+  display: flex;
+}
+
+/* a */
+.topbar .bar-left .list .item {
+  position: relative;
+  /* 继承行高 */
+  display: inline-block;
+  padding: 0 19px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.topbar .bar-left .list .item:hover,
+.topbar .bar-left .list .item.active {
+  color: #fff;
+  background-color: #000;
+}
+
+/* 字体图标 */
+.topbar .bar-left .list .item.active::after {
+  content: "";
+  position: absolute;
+  /* 📢: 水平居中方法(垂直居中方法类似) */
+  /* 方法1:必须设置宽度 */
+  /* left: 50%; */
+  /* 已知自身盒子宽度的一半 */
+  /* margin-left: -6px; */
+
+  /* 方法2:不需要设置宽度 */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+
+  /* 方法3:必须设置宽度 */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  bottom: -1px;
+  width: 12px;
+  height: 7px;
+  background: url(../images/topbar_sprite.png) no-repeat -226px 0;
+}
+
+.topbar .bar-left .list .item .icon-hot {
+  position: absolute;
+  top: 21px;
+  right: -20px;
+  /* width: 28px;
+  height: 19px;
+  background: url(../images/topbar_sprite.png) no-repeat -190px 0; */
+}
+
+/* 2.右侧区域 */
+.topbar .bar-right {
+  display: flex;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+  padding-right: 22px;
+}
+
+/* 2.1登录 */
+.topbar .bar-right .login a {
+  color: #787878;
+}
+
+.topbar .bar-right .login:hover a {
+  color: #999;
+}
+
+.topbar .bar-right .login a:hover {
+  color: #787878;
+  text-decoration: underline;
+}
+
+/* 2.2作者 */
+.topbar .bar-right .author > a {
+  display: inline-block;
+  width: 90px;
+  height: 32px;
+  margin: 0 20px 0 12px;
+  /* 
+    📢: line-height
+      如果在设置宽高的情况下,没有自己单独设置line-height,块级元素(行内块元素)的内容会继承父盒子的line-height,造成内容继承父盒子的line-height
+   */
+  line-height: 32px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #ccc;
+  border: 1px solid #4f4f4f;
+  border-radius: 20px;
+}
+
+.topbar .bar-right .author > a:hover {
+  color: #fff;
+  border-color: #ccc;
+}
+
+/*2.3搜索框 */
+.topbar .bar-right .search {
+  position: relative;
+  /* 
+    📢: 为什么不是使用line-height,而使用 align-items: center
+    因为input是行内替换元素(跟行内块级)一样, line-height 会影响 vertical-align(基线对齐) ,看似居中对齐了,但是并没有完全居中对齐
+    */
+  display: flex;
+  /* 水平方向: 末尾对齐 */
+  justify-content: flex-end;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+  width: 158px;
+  height: 32px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  border-radius: 32px;
+  /* background-color: #fff;
+  background-image: url(../images/topbar_sprite.png);
+  background-repeat: no-repeat;
+  background-position: 0 -99px; */
+  /* background的简写 */
+  background: #fff url(../images/topbar_sprite.png) no-repeat 0 -99px;
+}
+
+.topbar .bar-right .search > input {
+  width: 118px;
+  height: 15px;
+}
+
+/* 📢: input里的占位文字的2种实现方法 */
+/* 方法1: 在input上面盖上一个label文本，利用js实现，通过点击label，input自动聚焦，label隐藏；input失去焦点时，显示label */
+.topbar .bar-right .search > label {
+  position: absolute;
+  /* 📢: 这里的display: block;作用是显示label */
+  display: block;
+  width: 118px;
+  height: 15px;
+  /* 
+    📢: line-height
+      1.如果在设置宽高的情况下,没有自己单独设置line-height,块级元素(行内块元素)的内容会继承父盒子的line-height,造成内容继承父盒子的line-height
+      2.如果设置box-sizing: border-box; 记得用 height — padding-top(padding-bottom/border-top/border-bottom)的值，才是line-height的值
+   */
+  line-height: 15px;
+  font-size: 12px;
+  color: #9b9b9b;
+  /* 鼠标形状 */
+  cursor: text;
+}
+
+/* 
+  方法2: 利用css属性的placeholder实现
+  缺点：input自动聚焦时，文字不隐藏，只有输入内容才隐藏
+ */
+.topbar .bar-right .search input::-webkit-input-placeholder {
+  color: #9b9b9b;
+  font-size: 12px;
+}
+
+/* --------------------- /顶部导航栏 --------------------- */
+
+
+/* --------------------- 主导航栏 --------------------- */
+.nav {
+  /* 📢: 这里的宽度主要与设计稿保持一致 */
+  width: 1425px;
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #a40011;
+  box-sizing: border-box;
+  background-color: #C20C0C;
+}
+
+.navbar {
+  padding-left: 180px;
+  /* 📢: 这里为什么使用 box-sizing: border-box; ?
+     虽然块级盒子的嵌套(没有设置宽度),宽度为auto,
+     但是另一个类(版心)wrapper_01的宽度为1100px,
+     所以必须设置 box-sizing: border-box;
+   */
+  box-sizing: border-box;
+  /* 辅助颜色 */
+  /* background-color: #00f; */
+}
+
+/* 导航数据内容(ul) */
+.navbar .list {
+  display: flex;
+}
+
+/* a */
+.navbar .list .item {
+  display: inline-block;
+}
+
+.navbar .list .item > span {
+  display: inline-block;
+  height: 20px;
+  padding: 0 13px;
+  margin: 7px 17px 0;
+  border-radius: 20px;
+  line-height: 21px;
+  color: #fff;
+}
+
+.navbar .list .item.active > span,
+.navbar .list .item:hover > span {
+  background-color: #9B0909;
+}
+
+/* 📢: 这里的左右padding不同 */
+.navbar .list > li:nth-child(3) .item > span {
+  padding: 0 15px 0 11px;
+}
+
+
+/* --------------------- /主导航栏 --------------------- */
+

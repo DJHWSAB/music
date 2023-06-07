@@ -1,0 +1,38 @@
+/* 这里存放的是样式重置 */
+
+html,body,div,h1,h2,h3,p,ul,li,a,input,span,img,i,dl,dt,dd,ol {
+  /* 去除默认样式 */
+  margin: 0;
+  padding: 0;
+}
+
+ul,ol,li {
+  /* 去除小圆点 */
+  list-style: none;
+}
+
+a {
+  /* 去除下划线 */
+  text-decoration: none;
+  /* 去除外轮廓 */
+  outline: none;
+  /* 常用颜色 */
+  color: #000;
+}
+
+input {
+  /* 去除外轮廓 */
+  outline: none;
+  /* 不要边框 */
+  border: none;
+}
+
+img {
+  /* 顶部基线对齐 */
+  vertical-align: top;
+}
+
+i {
+  /* 样式不倾斜 */
+  font-style: normal;
+}
